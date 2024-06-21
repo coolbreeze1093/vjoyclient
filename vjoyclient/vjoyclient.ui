@@ -305,6 +305,13 @@
       </spacer>
      </item>
      <item>
+      <widget class="QCheckBox" name="checkBox_localTest">
+       <property name="text">
+        <string>本地测试</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="pushButton_start">
        <property name="text">
         <string>开始</string>
@@ -321,49 +328,65 @@
  </resources>
  <connections>
   <connection>
-   <sender>horizontalSlider_c1</sender>
+   <sender>spinBox_4</sender>
    <signal>valueChanged(int)</signal>
-   <receiver>spinBox</receiver>
+   <receiver>horizontalSlider_c4</receiver>
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>112</x>
-     <y>23</y>
+     <x>224</x>
+     <y>179</y>
     </hint>
     <hint type="destinationlabel">
-     <x>201</x>
-     <y>22</y>
+     <x>172</x>
+     <y>180</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>horizontalSlider_c2</sender>
+   <sender>spinBox_3</sender>
    <signal>valueChanged(int)</signal>
-   <receiver>spinBox_2</receiver>
+   <receiver>horizontalSlider_c3</receiver>
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>164</x>
-     <y>52</y>
+     <x>224</x>
+     <y>149</y>
     </hint>
     <hint type="destinationlabel">
-     <x>202</x>
-     <y>55</y>
+     <x>172</x>
+     <y>150</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>horizontalSlider_c3</sender>
+   <sender>spinBox_2</sender>
    <signal>valueChanged(int)</signal>
-   <receiver>spinBox_3</receiver>
+   <receiver>horizontalSlider_c2</receiver>
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>154</x>
-     <y>90</y>
+     <x>224</x>
+     <y>119</y>
     </hint>
     <hint type="destinationlabel">
-     <x>196</x>
+     <x>172</x>
+     <y>120</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>horizontalSlider_c1</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>224</x>
+     <y>87</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>172</x>
      <y>88</y>
     </hint>
    </hints>
@@ -375,76 +398,60 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>132</x>
-     <y>115</y>
+     <x>172</x>
+     <y>180</y>
     </hint>
     <hint type="destinationlabel">
-     <x>197</x>
-     <y>117</y>
+     <x>224</x>
+     <y>179</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>spinBox</sender>
+   <sender>horizontalSlider_c3</sender>
    <signal>valueChanged(int)</signal>
-   <receiver>horizontalSlider_c1</receiver>
+   <receiver>spinBox_3</receiver>
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>204</x>
-     <y>17</y>
+     <x>172</x>
+     <y>150</y>
     </hint>
     <hint type="destinationlabel">
-     <x>149</x>
-     <y>19</y>
+     <x>224</x>
+     <y>149</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>spinBox_2</sender>
+   <sender>horizontalSlider_c2</sender>
    <signal>valueChanged(int)</signal>
-   <receiver>horizontalSlider_c2</receiver>
+   <receiver>spinBox_2</receiver>
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>218</x>
-     <y>49</y>
+     <x>172</x>
+     <y>120</y>
     </hint>
     <hint type="destinationlabel">
-     <x>144</x>
-     <y>55</y>
+     <x>224</x>
+     <y>119</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>spinBox_3</sender>
+   <sender>horizontalSlider_c1</sender>
    <signal>valueChanged(int)</signal>
-   <receiver>horizontalSlider_c3</receiver>
+   <receiver>spinBox</receiver>
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>208</x>
-     <y>84</y>
+     <x>172</x>
+     <y>90</y>
     </hint>
     <hint type="destinationlabel">
-     <x>154</x>
-     <y>85</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>spinBox_4</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>horizontalSlider_c4</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>199</x>
-     <y>112</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>139</x>
-     <y>113</y>
+     <x>224</x>
+     <y>89</y>
     </hint>
    </hints>
   </connection>

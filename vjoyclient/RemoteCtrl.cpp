@@ -43,6 +43,7 @@ void RemoteCtrl::revData()
 		return;
 	}
 	QNetworkDatagram _data = m_udp.receiveDatagram(_size);
+	qDebug() << _data.data();
 	m_array.append(_data.data());
 
 	QString _str(m_array);

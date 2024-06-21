@@ -40,10 +40,26 @@ vjoyclient::vjoyclient(QWidget *parent)
             m_isClicked = true;
         }
         });
-    connect(ui.horizontalSlider_c1, &QSlider::valueChanged, this, &vjoyclient::setValue);
-    connect(ui.horizontalSlider_c2, &QSlider::valueChanged, this, &vjoyclient::setValue);
-    connect(ui.horizontalSlider_c3, &QSlider::valueChanged, this, &vjoyclient::setValue);
-    connect(ui.horizontalSlider_c4, &QSlider::valueChanged, this, &vjoyclient::setValue);
+
+    connect(ui.checkBox_localTest, &QCheckBox::stateChanged, [this](int value) {
+        if (value == 2)
+        {
+            disconnect(&m_rc, &RemoteCtrl::ctrlData, this, &vjoyclient::ctrlData);
+            connect(ui.horizontalSlider_c1, &QSlider::valueChanged, this, &vjoyclient::setValue);
+            connect(ui.horizontalSlider_c2, &QSlider::valueChanged, this, &vjoyclient::setValue);
+            connect(ui.horizontalSlider_c3, &QSlider::valueChanged, this, &vjoyclient::setValue);
+            connect(ui.horizontalSlider_c4, &QSlider::valueChanged, this, &vjoyclient::setValue);
+
+        }
+        else
+        {
+            connect(&m_rc, &RemoteCtrl::ctrlData, this, &vjoyclient::ctrlData);
+            disconnect(ui.horizontalSlider_c1, &QSlider::valueChanged, this, &vjoyclient::setValue);
+            disconnect(ui.horizontalSlider_c2, &QSlider::valueChanged, this, &vjoyclient::setValue);
+            disconnect(ui.horizontalSlider_c3, &QSlider::valueChanged, this, &vjoyclient::setValue);
+            disconnect(ui.horizontalSlider_c4, &QSlider::valueChanged, this, &vjoyclient::setValue);
+        }
+        });
 
     connect(&m_rc, &RemoteCtrl::ctrlData, this, &vjoyclient::ctrlData);
 }
@@ -67,10 +83,20 @@ void vjoyclient::ctrlData(const QVariantMap&value)
     m_value.Aileron = value.value("channel3").toDouble();
     m_value.Elevator = value.value("channel4").toDouble();
 
+    qDebug() << "m_value.Throttle "<< m_value.Throttle
+        <<"m_value.Rudder"<< m_value.Rudder
+        <<"m_value.Aileron"<< m_value.Aileron
+        <<"m_value.Elevator"<< m_value.Elevator;
+
     ui.horizontalSlider_c1->setValue(m_value.Throttle);
     ui.horizontalSlider_c2->setValue(m_value.Rudder);
     ui.horizontalSlider_c3->setValue(m_value.Elevator);
     ui.horizontalSlider_c4->setValue(m_value.Aileron);
+
+    ui.spinBox->setValue(m_value.Throttle);
+    ui.spinBox_2->setValue(m_value.Rudder);
+    ui.spinBox_3->setValue(m_value.Elevator);
+    ui.spinBox_4->setValue(m_value.Aileron);
 
     m_vjoy.setCtrlValue(m_value);
 }
